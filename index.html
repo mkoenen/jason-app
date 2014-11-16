@@ -4,28 +4,17 @@
 <link href="css/styles.css" rel="stylesheet">
 <script>
     window.onload = function() {
-
         document.addEventListener("deviceready", init, false);
         document.addEventListener("deviceready", onDeviceReady, false);
-
     }
 
     function onDeviceReady() {
-        var menuButton = document.getElementById("menubutton");
-        menuButton.addEventListener('click', slideOut, false);  
+        var pageTwoBtn = document.getElementById('btnPageTwo');
+        pageTwoBtn.addEventListener('click', goToPage2, false);
     }
-    function slideOut() {
-        var navtag = document.getElementsByTagName("nav").className = "open";
-        if (document.getElementsByTagName("nav").className == "open") {
-           slideIn(); 
-        var articletag = document.getElementById("solutions-article");
-        articletag.addEventListener("deviceready", slideIn, false);
-        }
-
-
-    }
-    function slideIn(){
-        var navtag = document.getElementsByTagName("nav").className = "closed";
+    
+    function goToPage2(event) {
+        window.location = "second.html";
     }
                 
     var xmlhttp;
@@ -65,13 +54,10 @@
 </head>
 <body>
 
-<nav class="closed">
-    <menuitem>Page2</menuitem>
-</nav>
 
 
 <div class="header">
-    <button id="menubutton"><img id="navicon" style="width:30px;" src="/img/navigation.png" /></button>
+    <button id="btnPageTwo">Page Two</button>
     <h1>Services</h1></div>
 
 <div id="solutions-article">
