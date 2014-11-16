@@ -6,7 +6,13 @@
     window.onload = function() {
 
         document.addEventListener("deviceready", init, false);
+        document.addEventListener("click", slideOut, false);
 
+    }
+
+    fuction slideOut() {
+        var boddytag = document.getElementById("body");
+        boddytag.setAttribute("class", "open-right");
     }
                 
     var xmlhttp;
@@ -47,8 +53,14 @@
 </head>
 <body>
 
+<nav>
+    <menuitem>Page2</menuitem>
+</nav>
 
-<div class="header"><h1>Services</h1></div>
+
+<div class="header">
+    <img id="navigation" style="width:50px;" src="/img/navigation.png" />
+    <h1>Services</h1></div>
 
 <div class="article">
     <div id="result"></div>
