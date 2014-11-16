@@ -1,0 +1,170 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Hello World</title>
+<script>
+    window.onload = function() {
+        document.addEventListener("deviceready", onDeviceReady, false);
+       /* document.addEventListener("deviceready", onDeviceReady2, false);*/
+        document.addEventListener("deviceready", init, false);
+    }
+    
+    function onDeviceReady() {
+        var pageOneBtn = document.getElementById('btnPageOne');
+        pageOneBtn.addEventListener('click', goToPage1, false);
+        var pageThreeBtn = document.getElementById('btnPageThree');
+        pageThreeBtn.addEventListener('click', goToPage3, false);
+    }
+    
+    function goToPage1(event) {
+        /*alert(event.target.id);*/
+        window.location = "index.html";
+    }
+    function goToPage3(event) {
+        /*alert(event.target.id);*/
+        window.location = "third.html";
+    }
+   
+    /*function onDeviceReady2() {
+        document.getElementById("rating").addEventListener("change", function() {
+                  document.getElementById("sliderOut").innerHTML= document.getElementById("rating").value;
+              }, false);
+    }*/
+
+    function init() {
+                document.getElementById("storeData").addEventListener("click", storeData, false);
+                document.getElementById("retrieveData").addEventListener("click", retrieveData, false);
+    }
+
+    function storeData(){
+        var first = document.getElementById("first_name").value;
+        var last = document.getElementById("last_name").value;
+        var email = document.getElementById("email").value;
+
+        /*window.localStorage.setItem("first", first);
+        window.localStorage.setItem("last", last);
+        window.localStorage.setItem("email", email);*/
+
+        window.sessionStorage.setItem("first", first);
+        window.sessionStorage.setItem("last", last);
+        window.sessionStorage.setItem("email", email);
+    }
+
+    function retrieveData(){
+        /*var first = window.localStorage.getItem("first");
+        var last = window.localStorage.getItem("last");
+        var email = window.localStorage.getItem("email");*/
+
+        var first = window.sessionStorage.getItem("first");
+        var last = window.sessionStorage.getItem("last");
+        var email = window.sessionStorage.getItem("email");
+
+        var output = "First: " + first + "<br />Last: " + last + "<br />Email: " + email + "<br />";
+        document.getElementById("dataResult").innerHTML = output;
+    }
+</script>
+
+</head>
+<body>
+    <header>
+        <img src="img/header.jpg" />
+        <h1>Page2</h1>
+        <button id="btnPageOne">Page One</button>
+        <button id="btnPageThree">Page Three</button>
+    </header>
+    <article>
+        <!--action will point to a page where the form gets processed-->
+        <!--<form action="#" method="post"> -->
+          <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" /><br />
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" /><br />
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" /><br />
+            <!--<label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" /><br />
+            <label for="favnum">Favorite Number</label>
+            <input type="number" min="0" max="100" id="favnum" name="favnum" /><br />
+            <label for="favcolor">Favorite Color</label>
+            <input type="color" id="favcolor" name="favcolor" /><br />
+            <label for="states">States</label>
+                <select id="states" name="states">
+                    <option value="CT">Connecticut</option>
+                    <option value="NY">New York</option>
+                    <option value="MI">Michigan</option>
+                    <option value="TX">Texas</option>
+                </select><br />
+            <label for="favteam">Favorite Team</label>
+            <input type="text" id="favteam" name="favteam" list="favteams" /><br />
+            <datalist id="favteams">
+                <option value="Yankees" />
+                <option value="Mets" />
+                <option value="Orioles" />
+            </datalist><br />
+            <label for="rating">Rating</label>
+            <input type="range" id="rating" name="rating" min="0" max="100" /><output id="sliderOut"></output><br />-->
+            <!--<div class="gf_browser_chrome gform_wrapper" id="gform_wrapper_1">
+                <form method= "post" enctype= "multipart/form-data" id="gform_1"
+                    action="http://margaretekoenen.com/test-form/">
+                    <div class= "gform_heading">
+                    <h3 class= "gform_title"> User Info Test </h3>
+                    </div>
+                    <div class= "gform_body">
+                    <ul id= "gform_fields_1" class= "gform_fields top_label description_below">
+                        <li id= "field_1_1" class= "gfield first">
+                            <label class= "gfield_label" for= "input_1_1"> First Name </label>
+                            <div class= "ginput_container">
+                                <input name= "input_1" id= "input_1_1" type= "text" value class="medium" tabindex="1">
+                            </div>
+                        </li>
+                        <li id= "field_1_2" class= "gfield last">
+                            <label class= "gfield_label" for= "input_1_2"> Last Name </label>
+                            <div class= "ginput_container">
+                                <input name= "input_2" id= "input_1_2" type= "text" value class="medium" tabindex="2">
+                            </div>
+                        </li>
+                        <li id= "field_1_3" class= "gfield email">
+                            <label class= "gfield_label" for= "input_1_3"> Email </label>
+                            <div class= "ginput_container">
+                                <input name= "input_3" id= "input_1_3" type= "text" value class="medium" tabindex="3">
+                            </div>
+                         </li>
+                    </ul>
+                </div>
+                <div class= "gform_footer top_label">
+                    <input type= "submit" id= "gform_submit_button_1" class= "gform_button button" value="Submit" 
+                    tabindex= "4" onclick= "if(window["gf_submitting_1"] ) {return false; }
+                    window["gf_submitting_1"] =true; ">
+                    <input type= "hidden" class= "gform_hidden" name= "is_submit_1" value="1";
+                    <input type= "hidden" class= "gform_hidden" name= "gform_submit" value="1";
+                    <input type= "hidden" class= "gform_hidden" name= "gform_unique_id value>
+                    <input type= "hidden" class= "gform_hidden" name= "state_1" value=
+                    "WyJbXSIsImQ4MWE4Y2YzNDIxYjJkMTNlMTkyNDJjNzVhN2IyYTQ4Il0=">
+                    <input type= "hidden" class= "gform_hidden" name= "gform_target_page_number_1"
+                    id="gform_target_page_number_1" value= "0">
+                    <input type= "hidden" class= "gform_hidden" name= "gform_source_page_number_1
+                    "gform_source_page_number_1" value= "1">
+                    <input type= "hidden" name= "gform_field_values" value>
+                </div>
+            </form>
+        </div>
+        <script type="text/javascript">
+             jQuery(document).ready(function(){jQuery(document).trigger('gform_post_render', [1, 1]) } ); 
+        </script>-->
+            <button id="storeData">Save</button>
+        <!--</form>-->
+        <button id="retrieveData">Show Data</button>
+        <div id="dataResult"></div>
+    </article>
+
+    
+
+    <footer>
+        <p>Copyright 2014. All rights reserved.
+    </footer>
+
+
+<script src="phonegap.js"></script>
+
+</body>
+</html>
