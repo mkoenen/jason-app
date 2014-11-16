@@ -61,8 +61,14 @@ nav.closed {
     background-color: #313639;
 }
 nav.open {
+    width: 240px;
+    height: 100%;
+    position: absolute;
     left: 0;
     top: 0;
+    margin: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
     opacity: 1;
     -webkit-overflow-scrolling: touch;
     -webkit-transform: translate3d(0,0,0)scale(1);
