@@ -48,8 +48,8 @@ h2 {
 nav {
     width: 240px;
     height: 100%;
-    position: fixed;
-    right: 0;
+    position: absolute;
+    left: -240px;
     top: 0;
     margin: 0;
     overflow-y: auto;
@@ -61,6 +61,8 @@ nav {
     background-color: #313639;
 }
 body.open-right nav {
+    left: 0;
+    top: 0;
     opacity: 1;
     -webkit-overflow-scrolling: touch;
     -webkit-transform: translate3d(0,0,0)scale(1);

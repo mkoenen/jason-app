@@ -6,13 +6,17 @@
     window.onload = function() {
 
         document.addEventListener("deviceready", init, false);
-        document.addEventListener("click", slideOut, false);
+        document.addEventListener("deviceready", onDeviceReady, false);
 
     }
 
-    fuction slideOut() {
-        var boddytag = document.getElementById("body");
-        boddytag.setAttribute("class", "open-right");
+    function onDeviceReady() {
+        var menuButton = document.getElementById("menubutton");
+        menuButton.addEventListener("click", slideOut, false);  
+    }
+    function slideOut() {
+        var bodytag = document.getElementById("body");
+        bodytag.setAttribute("class", "open-right");
     }
                 
     var xmlhttp;
@@ -59,7 +63,7 @@
 
 
 <div class="header">
-    <button><img id="navigation" style="width:50px;" src="/img/navigation.png" /></button>
+    <button id="menubutton"><img id="navigation" style="width:30px;" src="/img/navigation.png" /></button>
     <h1>Services</h1></div>
 
 <div class="article">
