@@ -9,7 +9,7 @@
     }
 
     function onDeviceReady() {
-        var pageTwoBtn = document.getElementById('btnPageOne');
+        var pageOneBtn = document.getElementById('btnPageOne');
         pageOneBtn.addEventListener('click', goToPage1, false);
     }
     
@@ -24,7 +24,7 @@
         /*initialize*/
         xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = dataReturn;
-        xmlhttp.open("GET", "http://services.loudfeed.tv/wp-json/posts/188", true);
+        xmlhttp.open("GET", "http://services.loudfeed.tv/wp-json/posts/118", true);
         xmlhttp.send();
     }
             
