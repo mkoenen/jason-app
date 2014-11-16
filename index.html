@@ -2,37 +2,59 @@
 <head>
 <script src="css/source-sans-pro.js"></script>
 <link href="css/styles.css" rel="stylesheet">
+<script>
+    window.onload = function() {
+
+        document.addEventListener("deviceready", init, false);
+
+    }
+                
+    var xmlhttp;
+            
+    function init() {   /*document.getElementById("btnGetData").addEventListener("click", getData, false);*/
+                
+        /*initialize*/
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = dataReturn;
+        xmlhttp.open("GET", "http://margaretekoenen.com/wp-json/posts/151", true);
+        xmlhttp.send();
+    }
+            
+    function dataReturn() {
+
+        if(xmlhttp.readyState ==4 && xmlhttp.status == 200) {
+
+            //We've got a response from the server
+            var jsonResponse = xmlhttp.responseText;
+            jsonResponse = eval("(" + jsonResponse + ")");
+            var output = "";
+            output += "<h2>" + jsonResponse.title + "</h2><br />";
+            output += jsonResponse.content + "<br />";
+            ;
+
+            /*document.getElementById("result").innerHTML = output;*/
+            document.getElementById("result").innerHTML = output;
+            document.getElementById("gform_1").action = "http://margaretekoenen.com/test-form/"
+
+        } else {
+
+            // Indicate a waiting condition to the user
+            document.getElementById('result').innerHTML = "<strong>Waiting</strong>";
+
+        }
+    }
+
+</script>
 </head>
 <body>
 
-<script id="home-tpl" type="text/x-handlebars-template">
-    <div class='header'><h1>Home</h1></div>
-    <div class='search-bar'><input class='search-key' type="search"/></div>
-    <div class="scroll"><ul class='employee-list'></ul></div>
-</script>
 
-<script id="employee-li-tpl" type="text/x-handlebars-template">
-    {{#.}}
-    <li><a href="#employees/{{this.id}}">{{this.firstName}} {{this.lastName}}<br/>{{this.title}}</a></li>
-    {{/.}}
-</script>
+<div class="header"><h1>Home</h1></div>
 
-<script id="employee-tpl" type="text/x-handlebars-template">
-    <div class='header'><a href='#' class="button header-button header-button-left">Back</a><h1>Details</h1></div>
-    <div class='details'>
-    <img id='image' src='img/{{firstName}}_{{lastName}}.jpg' style="float:left;margin:10px;"/>
-    <h1>{{firstName}} {{lastName}}</h1>
-    <h2>{{title}}</h2>
-    <span class="location"></span>
-    <ul>
-    <li><a href="tel:{{officePhone}}">Call Office<br/>{{officePhone}}</a></li>
-    <li><a href="tel:{{cellPhone}}">Call Cell<br/>{{cellPhone}}</a></li>
-    <li><a href="sms:{{cellPhone}}">SMS<br/>{{cellPhone}}</a></li>
-    <li><a href="#" class="add-location-btn">Add Location</a></li>
-    <li><a href="#" class="add-contact-btn">Add to Contacts</a></li>
-    </ul>
-    </div>
-</script>
+<div id="result"></div>
+
+
+    
 
 <script src="phonegap.js"></script>
 <script src="lib/jquery-1.8.2.min.js"></script>
