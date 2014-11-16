@@ -24,7 +24,7 @@
         /*initialize*/
         xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = dataReturn;
-        xmlhttp.open("GET", "http://services.loudfeed.tv/wp-json/posts/118", true);
+        xmlhttp.open("GET", "http://services.loudfeed.tv/wp-json/posts/1395", true);
         xmlhttp.send();
     }
             
@@ -37,6 +37,8 @@
             jsonResponse = eval("(" + jsonResponse + ")");
             var output = "";
             output += "<h2>" + jsonResponse.title + "</h2><br />";
+            output += "<div class=\"avatar\"><img src=\"" + jsonResponse.author.avatar + "\" /></div>";
+            output += jsonResponse.author.name;
             output += jsonResponse.content + "<br />";
             
 
@@ -57,7 +59,7 @@
 <body>
    <div class="header">
     <button id="btnPageOne">Page One</button>
-    <h1>CSS-Tip</h1>
+    <h1>Sample Article</h1>
 </div>
 
 <div class="article">
