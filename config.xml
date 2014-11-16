@@ -7,10 +7,12 @@
 
     <!-- versionCode is optional and Android only -->
 
-    <name>Employee Directory</name>
+    <preference name="phonegap-version" value="3.5.0" />
+
+    <name>Json App</name>
 
     <description>
-        A simple employee directory application
+        App that pulls in data using the Json Rest API.
     </description>
 
     <author href="http://loudfeed.tv" email="margaretekoenen@gmail.com">
@@ -26,3 +28,4 @@
     <feature name="http://api.phonegap.com/1.0/notification"/>
 
 </widget>
+    <?xml version="1.0" encoding="UTF-8" ?>
