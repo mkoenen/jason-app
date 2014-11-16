@@ -28,9 +28,8 @@
             var jsonResponse = xmlhttp.responseText;
             jsonResponse = eval("(" + jsonResponse + ")");
             var output = "";
-            output += "<h2>" + jsonResponse.title + "</h2><br />";
             output += jsonResponse.content + "<br />";
-            ;
+            
 
             /*document.getElementById("result").innerHTML = output;*/
             document.getElementById("result").innerHTML = output;
@@ -49,7 +48,7 @@
 <body>
 
 
-<div class="header"><h1>Home</h1></div>
+<div class="header"><h1>Services</h1></div>
 
 <div class="article">
     <div id="result"></div>

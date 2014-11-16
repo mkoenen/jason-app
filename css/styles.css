@@ -13,7 +13,9 @@ body {
     position: relative;
 }
 h2 {
-font-size: 1.6em;
+    font-size: 1.6em;
+    font-weight: normal;
+    text-align: center;
 }
 .header {
     background: #666;
@@ -49,7 +51,11 @@ font-size: 1.6em;
 }
 .item h2 {
     font-size: 1.4em;
+    text-align: left;
+    margin-left: 70px;
 }
 .item img {
     margin: 0 auto;
+    width: 60px;
+    float: left;
 }
