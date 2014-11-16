@@ -18,7 +18,7 @@
         var navtag = document.getElementsByTagName("nav").className = "open";
         if (document.getElementsByTagName("nav").className == "open") {
            slideIn(); 
-        var articletag = document.getElementByClass("article");
+        var articletag = document.getElementById("solutions-article");
         articletag.addEventListener("deviceready", slidein, false);
         }
 
@@ -74,7 +74,7 @@
     <button id="menubutton"><img id="navicon" style="width:30px;" src="/img/navigation.png" /></button>
     <h1>Services</h1></div>
 
-<div class="article">
+<div id="solutions-article">
     <div id="result"></div>
 </div>
 
