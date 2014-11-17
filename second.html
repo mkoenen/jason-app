@@ -41,10 +41,10 @@
             output += "<h2>" + jsonResponse.title + "</h2><br />";
             output += "<div class=\"avatar\"><img src=\"" + jsonResponse.author.avatar + "\" /></div>";
             output += jsonResponse.author.name;
-            output += jsonResponse.date+ "<br />";
-            output += "div class=\"featured\"><img src=\"" + jsonResponse.featured_image.source + "\" /></div><br />";
+            output += "Publication Date:" + jsonResponse.date + "<br />";
+            output += "<div class=\"featured\"><img src=\"" + jsonResponse.featured_image.source + "\" /></div><br />";
             output += jsonResponse.content + "<br />";
-            output += "Categories:" + jsonResponse.terms.category.name + "<br />";
+            output += "Categories:" + jsonResponse.terms.category.ID + "<br />";
             
 
             /*document.getElementById("result").innerHTML = output;*/
