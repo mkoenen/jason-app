@@ -40,11 +40,11 @@
             var output = "";
             output += "<h2>" + jsonResponse.title + "</h2><br />";
             output += "<div class=\"avatar\"><img src=\"" + jsonResponse.author.avatar + "\" /></div>";
-            output += jsonResponse.author.name;
+            output += jsonResponse.author.name + "<br />";
             output += "Publication Date:" + jsonResponse.date + "<br />";
             output += "<div class=\"featured\"><img src=\"" + jsonResponse.featured_image.source + "\" /></div><br />";
             output += jsonResponse.content + "<br />";
-            output += "Categories:" + jsonResponse.terms.category.ID + "<br />";
+            output += "Categories: " + jsonResponse.terms.category[0].name +  jsonResponse.terms.category[1].name + "<br />";
             
 
             /*document.getElementById("result").innerHTML = output;*/
